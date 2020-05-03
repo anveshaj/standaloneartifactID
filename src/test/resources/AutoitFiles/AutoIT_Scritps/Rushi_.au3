@@ -1,0 +1,5 @@
+ControlFocus("Open","","Edit1")
+Sleep(3000)
+ControlSetText("Open","","Edit1",@WorkingDir & "\src\test\resources\AutoitFiles\Docs\Rushi.docx")
+Sleep(3000)
+ControlClick("Open","","Button1")
