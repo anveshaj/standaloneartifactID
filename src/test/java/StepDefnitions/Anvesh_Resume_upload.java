@@ -17,7 +17,7 @@ import org.openqa.selenium.interactions.Actions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 
-public class Chandu_Resume_upload{
+public class Anvesh_Resume_upload{
 	WebDriver driver=null;
 	String projectPath=null;
 	Pages.NaukariProfilePage npp;
