@@ -40,8 +40,7 @@ public class Anvesh_Resume_upload{
 		driver.get("https://www.naukri.com/mnjuser/profile?id=&altresid");
 
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		npp.login("anvesh.janapamula@gmail.com", "Water+123");
-//		npp.login("sudhaguttikonda28@gmail.com", "Sudha2811*");
+		npp.login(username, password);
 		Thread.sleep(5000);
 
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/span/div/div/div/div/div/div[2]/div[2]/div/div/ul/li[2]/a")).click();
