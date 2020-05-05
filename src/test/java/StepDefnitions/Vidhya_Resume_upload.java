@@ -21,6 +21,9 @@ public class Vidhya_Resume_upload{
 	WebDriver driver=null;
 	String projectPath=null;
 	Pages.NaukariProfilePage npp;
+	
+	String username=null;
+	String password = null;
 	@Before
 	public void setup() {
 		projectPath = System.getProperty("user.dir");
@@ -30,14 +33,15 @@ public class Vidhya_Resume_upload{
 		opt.addArguments("--incognito");
 		driver = new ChromeDriver(opt);
 		npp = new Pages.NaukariProfilePage(driver);
+		username = System.getProperty("username");
+		password = System.getProperty("password");
 	}
 	@Test
 	public void test_01() throws IOException, InterruptedException{
 		driver.get("https://www.naukri.com/mnjuser/profile?id=&altresid");
 
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		npp.login("sreevidya.amarapalli@gmail.com", "sree7044");
-//		npp.login("sudhaguttikonda28@gmail.com", "Sudha2811*");
+		npp.login(username, password);
 		Thread.sleep(5000);
 
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/span/div/div/div/div/div/div[2]/div[2]/div/div/ul/li[2]/a")).click();
