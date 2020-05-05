@@ -21,6 +21,8 @@ public class Anvesh_Resume_upload{
 	WebDriver driver=null;
 	String projectPath=null;
 	Pages.NaukariProfilePage npp;
+	String username=null;
+	String password = null;
 	@Before
 	public void setup() {
 		projectPath = System.getProperty("user.dir");
@@ -30,6 +32,8 @@ public class Anvesh_Resume_upload{
 		opt.addArguments("--incognito");
 		driver = new ChromeDriver(opt);
 		npp = new Pages.NaukariProfilePage(driver);
+		username = System.getProperty("username");
+		password = System.getProperty("password");
 	}
 	@Test
 	public void test_01() throws IOException, InterruptedException{
