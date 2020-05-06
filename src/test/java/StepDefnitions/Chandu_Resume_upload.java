@@ -2,6 +2,12 @@ package StepDefnitions;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
 import org.junit.After;
 import org.junit.Before;
