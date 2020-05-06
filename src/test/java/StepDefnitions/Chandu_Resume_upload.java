@@ -34,6 +34,19 @@ public class Chandu_Resume_upload{
 		npp = new Pages.NaukariProfilePage(driver);
 		username = System.getProperty("username");
 		password = System.getProperty("password");
+		try {
+			File f1= new File(projectPath+"\\src\\test\\resources\\AutoitFiles\\Docs\\chandu.docx");
+			FileInputStream fis = new FileInputStream(f1);
+			XWPFDocument doc = new XWPFDocument(fis);
+			
+			FileOutputStream fos = new FileOutputStream(f1);
+			doc.write(fos);
+			doc.close();
+			fos.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	@Test
 	public void test_01() throws IOException, InterruptedException{
@@ -46,6 +59,7 @@ public class Chandu_Resume_upload{
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/span/div/div/div/div/div/div[2]/div[2]/div/div/ul/li[2]/a")).click();
 		WebElement updateresume =  driver.findElement(npp.UpdateResume);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		
 		js.executeScript("arguments[0].click();", updateresume);
 		Thread.sleep(1000);
 
