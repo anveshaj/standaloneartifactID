@@ -2,6 +2,12 @@ package StepDefnitions;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
 import org.junit.After;
 import org.junit.Before;
@@ -21,6 +27,8 @@ public class Chandu_Resume_upload{
 	WebDriver driver=null;
 	String projectPath=null;
 	Pages.NaukariProfilePage npp;
+	String username=null;
+	String password = null;
 	@Before
 	public void setup() {
 		projectPath = System.getProperty("user.dir");
@@ -30,19 +38,34 @@ public class Chandu_Resume_upload{
 		opt.addArguments("--incognito");
 		driver = new ChromeDriver(opt);
 		npp = new Pages.NaukariProfilePage(driver);
+		username = System.getProperty("username");
+		password = System.getProperty("password");
+		try {
+			File f1= new File(projectPath+"\\src\\test\\resources\\AutoitFiles\\Docs\\chandu.docx");
+			FileInputStream fis = new FileInputStream(f1);
+			XWPFDocument doc = new XWPFDocument(fis);
+			
+			FileOutputStream fos = new FileOutputStream(f1);
+			doc.write(fos);
+			doc.close();
+			fos.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	@Test
 	public void test_01() throws IOException, InterruptedException{
 		driver.get("https://www.naukri.com/mnjuser/profile?id=&altresid");
 
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		npp.login("chandu.siddhapuram@gmail.com", "Chandu@55");
-//		npp.login("sudhaguttikonda28@gmail.com", "Sudha2811*");
+		npp.login(username, password);
 		Thread.sleep(5000);
 
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/span/div/div/div/div/div/div[2]/div[2]/div/div/ul/li[2]/a")).click();
 		WebElement updateresume =  driver.findElement(npp.UpdateResume);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
+		
 		js.executeScript("arguments[0].click();", updateresume);
 		Thread.sleep(1000);
 
