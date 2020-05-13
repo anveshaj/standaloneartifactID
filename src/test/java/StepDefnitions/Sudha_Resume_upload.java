@@ -61,5 +61,6 @@ public class Sudha_Resume_upload{
 	public void teardown() {
 		driver.close();
 		driver.quit();
+		
 	}
 }
