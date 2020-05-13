@@ -62,5 +62,6 @@ public class Rushi_Resume_upload{
 	public void teardown() {
 		driver.close();
 		driver.quit();
+		
 	}
 }
