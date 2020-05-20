@@ -43,7 +43,7 @@ public class Vidhya_Resume_upload{
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		npp.login(username, password);
 		Thread.sleep(5000);
-		driver.findElement(By.cssSelector("#root > div > div > span > div > div > div > div > div > div.row > div.col.s3.widgets.pl0 > div > div > ul > li:nth-child(2) > a")).click();
+		//driver.findElement(By.cssSelector("#root > div > div > span > div > div > div > div > div > div.row > div.col.s3.widgets.pl0 > div > div > ul > li:nth-child(2) > a")).click();
 
 		//driver.findElement(By.xpath("//a[@class='secondary-content']")).click();
 		WebElement updateresume =  driver.findElement(npp.UpdateResume);
