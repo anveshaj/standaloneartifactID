@@ -50,6 +50,7 @@ public class Vidhya_Resume_upload{
 		js.executeScript("arguments[0].click();", updateresume);
 		Thread.sleep(1000);
 
+		
 		Runtime.getRuntime().exec(projectPath+"\\src\\test\\resources\\AutoitFiles\\uploadExecutables\\Vidhya_.exe");
 		Thread.sleep(15000);
 		System.out.println("Resume last updated on :"+driver.findElement(By.xpath("//*[@id=\"lazyAttachCV\"]/div/div/div[2]/div[1]/div[1]/div[1]/div/span")).getText());
