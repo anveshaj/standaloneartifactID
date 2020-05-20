@@ -44,7 +44,7 @@ public class Vidhya_Resume_upload{
 		npp.login(username, password);
 		Thread.sleep(5000);
 
-		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/span/div/div/div/div/div/div[2]/div[2]/div/div/ul/li[2]/a")).click();
+		driver.findElement(By.xpath("//a[@class='secondary-content']")).click();
 		WebElement updateresume =  driver.findElement(npp.UpdateResume);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", updateresume);
